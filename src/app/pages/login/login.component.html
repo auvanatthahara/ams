@@ -1,0 +1,24 @@
+<form [formGroup]="userData" (ngSubmit)="onLogin()">
+    <div class="flex justify-content-center align-items-center p-5" style="height: 100%; min-height: 100vh;">
+        <div class="grid gy-2">
+            <div class="col-12">
+                <h1 class="text-center">Login</h1>
+            </div>
+            <div class="col-12 md:col-2">
+                <label for="loginEmailForm">Email</label>
+            </div>
+            <div class="col-12 md:col-10">
+                <input type="email" class="w-full" pInputText id="loginEmailForm" formControlName="userEmail">
+            </div>
+            <div class="col-12 md:col-2">
+                <label for="loginPassForm">Password</label>
+            </div>
+            <div class="col-12 md:col-10">
+                <input type="password" class="w-full" pInputText formControlName="userPass" id="loginPassForm">
+            </div>
+            <div class="col-12">
+                <app-button type="submit" label="Login" [loading]="loading" [disabled]="userData.invalid"></app-button>
+            </div>
+        </div>
+    </div>
+</form>

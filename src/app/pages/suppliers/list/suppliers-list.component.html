@@ -1,0 +1,52 @@
+<div class=" px-8">
+    <h1>SUPPLIERS LIST</h1>
+    <a routerLink="/suppliers/create" class="p-button-warning p-button-rounded my-3" pButton
+        style="text-decoration: none;">Create New Supplier</a>
+    <div class="card">
+        <p-table [value]="suppliers" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Name</th>
+                    <th colspan="2">Logo</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-s>
+                <tr>
+                    <!-- <td>{{i+1}}</td> -->
+                    <td>{{s.supplierName}}</td>
+                    <td>
+                        <img src="{{s.photoId | url}}" alt="" width="50rem" height="50rem">
+                    </td>
+                    <td>
+                        <p-button (click)="showDialog()" label="DELETE" styleClass="p-button-danger"></p-button>
+                        <p-dialog header="Confirmation" [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+                            <p class="mb-5 mt-3">Do you want to delete this data?</p>
+                            <div class="card flex justify-content-end">
+                                <button class="p-button-danger mr-3" pButton (click)="onDelete(s.supplierId)">YES</button>
+                                <button class="p-button-secondary" pButton>NO</button>
+                            </div>
+                        </p-dialog>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+
+<!-- <div class="modal fade" tabindex="-1" id="deleteModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">DELETE DATA</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure to delete this data?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                <button type="button" class="btn btn-primary" (click)="onDelete()" data-bs-dismiss="modal">Yes</button>
+            </div>
+        </div>
+    </div>
+</div> -->

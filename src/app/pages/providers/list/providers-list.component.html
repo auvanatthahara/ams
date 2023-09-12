@@ -1,0 +1,23 @@
+<div class="px-8">
+    <h1>PROVIDERS LIST</h1>
+    <a routerLink="/providers/create" class="p-button-warning p-button-rounded my-3" pButton style="text-decoration: none;">Create New Providers</a>
+    <div class="card">
+        <p-table [value]="providers" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Name</th>
+                    <th colspan="2">Logo</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-p>
+                <tr>
+                    <!-- <td>{{i+1}}</td> -->
+                    <td>{{p.providerName}}</td>
+                    <td>
+                        <img src="http://localhost:8080/files/{{p.photoId}}" alt="" width="50rem" height="50rem">
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>

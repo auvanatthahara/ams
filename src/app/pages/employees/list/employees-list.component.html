@@ -1,0 +1,26 @@
+<div class=" px-8">
+    <h1>EMPLOYEES LIST</h1>
+    <button pButton class=" mb-5 p-button-warning p-button-rounded" label="Create New Employee" routerLink="/employees/create"></button>
+    <div class="card">
+        <p-table [value]="employees" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Name</th>
+                    <th>Code</th>
+                    <th colspan="2">Company Name</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-c>
+                <tr>
+                    <td>{{c.employeeName}}</td>
+                    <td>{{c.employeeCode}}</td>
+                    <td>{{c.companyName}}</td>
+                    <td>
+                        <a routerLink="/employees/update/{{c.employeeId}}" class="p-button-secondary ml-3" pButton
+                            style="text-decoration: none;">UPDATE</a>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>

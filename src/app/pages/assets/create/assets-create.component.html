@@ -1,0 +1,42 @@
+<pre>{{assetData.value | json}}</pre>
+<div class="px-8">
+    <h1>CREATE ASSET</h1>
+    <form [formGroup]="assetData" (ngSubmit)="onClick()" class="mt-4">
+        <div class="grid gy-3">
+            <div class="col-12 md:col-3">
+                <label for="invoiceDetail">Invoice Detail <span class="text-red-500">*</span></label>
+            </div>
+            <div class="col-12 md:col-9">
+                <p-dropdown formControlName="invoiceDetailId" [options]="invoiceDetails" optionValue="id" optionLabel="itemName"></p-dropdown>
+            </div>
+            <div class="col-12 md:col-3">
+                <label for="status">Asset Status <span class="text-red-500">*</span></label>
+            </div>
+            <div class="col-12 md:col-9">
+                <p-dropdown formControlName="assetStatusId" [options]="statuses" optionValue="statusId" optionLabel="assetStatus"></p-dropdown>
+            </div>
+            <div class="col-12 md:col-3">
+                <label for="type">Asset Type <span class="text-red-500">*</span></label>
+            </div>
+            <div class="col-12 md:col-9">
+                <p-dropdown formControlName="assetTypeId" [options]="types" optionValue="typeId" optionLabel="assetType"></p-dropdown>
+            </div>
+            <div class="col-12 md:col-3">
+                <label for="company">Company <span class="text-red-500">*</span></label>
+            </div>
+            <div class="col-12 md:col-9">
+                <p-dropdown formControlName="companyId" [options]="companies" optionValue="companyId" optionLabel="companyName"></p-dropdown>
+            </div>
+            <div class="col-12 md:col-3">
+                <label for="formFile">Asset Photo <span class="text-red-500">*</span></label>
+            </div>
+            <div class="col-12 md:col-9">
+                <p-fileUpload mode="basic" chooseLabel="Choose" #file accept="image/*" (onSelect)="fileUpload($event, file)" styleClass="p-button-warning p-button-rounded"></p-fileUpload>
+            </div>
+            <div class="col-12">
+                <a routerLink="/assets/codes" class="p-button-secondary mr-3" pButton style="text-decoration: none;">BACK</a>
+                <button type="submit" class="p-button-warning" pButton>CREATE</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,29 @@
+<div class=" px-8">
+    <h1>INVOICE DETAILS LIST</h1>
+    <div class="card">
+        <p-table [value]="invoiceDetails" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Name</th>
+                    <th>Code</th>
+                    <th>Invoice Code</th>
+                    <th>Provider</th>
+                    <th></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-in>
+                <tr>
+                    <!-- <td>{{i+1}}</td> -->
+                    <th>{{in.itemName}}</th>
+                    <th>{{in.itemCode}}</th>
+                    <td>{{in.invoiceCode}}</td>
+                    <td>{{in.providerName}}</td>
+                    <td class="">
+                        <a routerLink="/invoices/update/{{in.invoiceId}}" class="p-button-secondary" pButton style="text-decoration: none;">UPDATE</a>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+    <a routerLink="/invoices" class="p-button-secondary" pButton style="text-decoration: none;">BACK</a>
+</div>

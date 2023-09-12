@@ -1,0 +1,42 @@
+<div class="px-8">
+    <h1>ASSETS LIST</h1>
+    <a routerLink="/assets/codes" class="p-button-warning p-button-rounded my-3" pButton
+        style="text-decoration: none;">Create New Asset</a>
+    <div class="card">
+        <p-table [value]="assets" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Name</th>
+                    <th>Code</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                    <th>Photo</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-a>
+                <tr>
+                    <!-- <td>{{i+1}}</td> -->
+                    <td>{{a.itemName}}</td>
+                    <td>{{a.itemCode}}</td>
+                    <td>{{a.assetType}}</td>
+                    <td>{{a.assetStatus}}</td>
+                    <td>
+                        <img src="{{a.photoId | url}}" alt="" width="50rem" height="50rem">
+                    </td>
+                    <!-- <td class="">
+                        <p-button (click)="showDialog()" label="DELETE" styleClass="p-button-danger"></p-button>
+                        <p-dialog header="Confirmation" [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+                            <p class="mb-5 mt-3">Do you want to delete this data?</p>
+                            <div class="card flex justify-content-end">
+                                <button class="p-button-danger mr-3" pButton (click)="deleteData(a.assetId)">YES</button>
+                                <button class="p-button-secondary" pButton>NO</button>
+                            </div>
+                        </p-dialog>
+                        <a routerLink="/assets/update/{{a.assetId}}" class="p-button-secondary ml-3" pButton
+                            style="text-decoration: none;">UPDATE</a>
+                    </td> -->
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>

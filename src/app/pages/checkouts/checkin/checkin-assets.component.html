@@ -1,0 +1,33 @@
+<pre>{{checkinData.value | json}}</pre>
+<div class="px-8">
+    <h1>CHECKIN</h1>
+    <form [formGroup]="checkinData" (ngSubmit)="onCreate()">
+        <div class="grid align-items-center">
+            <div class="col-12 md:col-2">
+                <h4 class="mt-md-4 mb-md-4">Add Item</h4>
+            </div>
+            <div class="col-12 md:col-10">
+                <button type="button" class="p-button-warning p-button-rounded" pButton (click)="onAdd()">ADD</button>
+            </div>
+            <div class="card border-solid border-round p-3 my-3 mr-3" *ngFor="let a of checkin.controls; let i = index">
+                <div class="grid">
+                    <div class="col-12 md:col-3">
+                        <label for="detail" >Asset <span class="text-red-500">*</span></label>
+                    </div>
+                    <div class="col-12 md:col-9" formArrayName="checkoutDetailId">
+                        <p-dropdown class="w-full" [formControlName]="i" [options]="details" optionValue="detailId" optionLabel="itemName"></p-dropdown>
+                    </div>
+                    <div class="col-12 md:col-12">
+                        <button type="button" class="p-button-danger" pButton (click)="onRemove(i)">DELETE</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <a routerLink="/checkouts" class="p-button-secondary mt-3 mr-3" pButton style="text-decoration: none;">BACK</a>
+                <button type="submit"class="p-button-warning mt-3" pButton style="text-decoration: none;">SUBMIT</button>
+            </div>
+        </div>
+
+
+    </form>
+</div>

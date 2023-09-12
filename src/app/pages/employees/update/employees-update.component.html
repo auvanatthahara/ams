@@ -1,0 +1,35 @@
+<div class=" px-8">
+    <h1>EMPLOYEE UPDATE</h1>
+    <form [formGroup]="employeeUpdate" (ngSubmit)="onUpdate()">
+        <div class="row align-items-center gy-3 my-3">
+            <div class="col-12 col-md-2">
+                <label for="nameForm"  >Name</label>
+            </div>
+            <div class="col-12 col-md-10">
+                <input type="text" class="w-full"   id="nameForm" formControlName="employeeName">
+            </div>
+            <div class="col-12 col-md-2">
+                <label for="codeForm">Code</label>
+            </div>
+            <div class="col-12 col-md-10">
+                <input type="text" class="w-full"   id="codeForm" formControlName="employeeCode">
+            </div>
+            <div class="col-12 col-md-2">
+                <label for="companyForm">Company</label>
+            </div>
+            <div class="col-12 col-md-10">
+                <select class="form-select" aria-label="Default select example" id="companyForm" formControlName="companyId">
+                    <option *ngFor="let c of companies; let i = index" value="{{c.companyId}}">{{c.companyName}}</option>
+                </select>
+            </div>
+            <div class="col-12">
+                <a routerLink="/employees" class="btn btn-secondary me-3">BACK</a>
+                <button type="submit" class="btn btn-warning">UPDATE</button>
+            </div>
+        </div>
+        <div class="row align-items-center justify-content-center mb-3">
+            <div class="col-2">
+            </div>
+        </div>
+    </form>
+</div>

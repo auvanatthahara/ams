@@ -1,0 +1,24 @@
+<div class=" px-8">
+    <h1>CHECKOUT LIST</h1>
+    <a routerLink="/checkouts/create" class="p-button-warning p-button-rounded my-3" pButton style="text-decoration: none;">Checkout Item</a>
+    <div class="card">
+        <p-table [value]="checkouts" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Checkout Code</th>
+                    <th></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-a>
+                <tr>
+                    <!-- <td>{{i+1}}</td> -->
+                    <td>{{a.checkoutCode}}</td>
+                    <td class="">
+                        <a routerLink="/checkouts/details/{{a.checkoutCode}}" class="p-button-secondary mr-3" pButton style="text-decoration: none;">DETAILS</a>
+                        <a routerLink="/checkouts/checkin/{{a.checkoutCode}}" class="p-button-warning" pButton style="text-decoration: none;">CHECK IN</a>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>

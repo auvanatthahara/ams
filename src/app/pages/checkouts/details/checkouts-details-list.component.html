@@ -1,0 +1,25 @@
+<div class=" px-8">
+    <h1>CHECKOUT DETAILS LIST</h1>
+    <div class="card">
+        <p-table [value]="checkoutDetails" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Item Name</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Check In Date</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-d>
+                <tr>
+                    <!-- <td>{{i+1}}</td> -->
+                    <td>{{d.itemName}}</td>
+                    <td>{{d.startDate}}</td>
+                    <td>{{d.endDate}}</td>
+                    <td>{{d.checkInDate}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+    <a routerLink="/checkouts" class="p-button-secondary mr-3" pButton style="text-decoration: none;">BACK</a>
+</div>

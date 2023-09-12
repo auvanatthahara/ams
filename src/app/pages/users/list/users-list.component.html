@@ -1,0 +1,29 @@
+<div class=" px-8">
+    <h1>USERS LIST</h1>
+    <a routerLink="/users/create" class="p-button-warning p-button-rounded mb-4" pButton style="text-decoration: none;">Create New User</a>
+    <div class="card">
+        <p-table [value]="users" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Role</th>
+                    <th>Photo</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-u>
+                <tr>
+                    <td>{{u.profileName}}</td>
+                    <td>{{u.profileAdderss}}</td>
+                    <td>{{u.roleName}}</td>
+                    <td>
+                        <img src="{{u.photoId | url}}" alt="" width="50rem" height="50rem">
+                    </td>
+                    <!-- <td>
+                        <a class="p-button-danger" pButton style="text-decoration: none;">REMOVE</a>
+                    </td> -->
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>

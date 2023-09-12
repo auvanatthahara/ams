@@ -1,0 +1,43 @@
+<pre>{{userData.value | json}}</pre>
+<div class="px-8">
+    <h1>CREATE USER</h1>
+    <form [formGroup]="userData" (ngSubmit)="onClick()">
+        <!-- Email -->
+        <div class="grid align-items-center gy-3 my-3 ">
+            <div class="col-12 md:col-3">
+                <label for="emailAddress">Email <span class="text-red-500">*</span></label>
+            </div>
+            <div class="col-12 md:col-9">
+                <input type="email" class="w-full" id="emailAddress" pInputText formControlName="userEmail" />
+            </div>
+            <div class="col-12 md:col-3">
+                <label for="fullName">Fullname <span class="text-red-500">*</span></label>
+            </div>
+            <div class="col-12 md:col-9">
+                <input type="text" class="w-full" id="fullName" pInputText formControlName="profileName" />
+            </div>
+            <div class="col-12 md:col-3">
+                <label for="address">Address <span class="text-red-500">*</span></label>
+            </div>
+            <div class="col-12 md:col-9">
+                <textarea id="address" rows="1" pInputTextarea formControlName="profileAddress"></textarea>
+            </div>
+            <div class="col-12 md:col-3">
+                <label for="role">Role <span class="text-red-500">*</span></label>
+            </div>
+            <div class="col-12 md:col-9">
+                <p-dropdown formControlName="roleId" [options]="users" optionValue="value" optionLabel="role"></p-dropdown>
+            </div>
+            <div class="col-12 md:col-3">
+                <label for="formFile">User Photo <span class="text-red-500">*</span></label>
+            </div>
+            <div class="col-12 md:col-9">
+                <p-fileUpload mode="basic" chooseLabel="Choose" #file accept="image/*" (onSelect)="fileUpload($event, file)" styleClass="p-button-warning p-button-rounded"></p-fileUpload>
+            </div>
+            <div class="col-12">
+                <a routerLink="/users" class="p-button-secondary mr-3" pButton style="text-decoration: none;">BACK</a>
+                <button type="submit" class="p-button-warning" pButton>CREATE</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,24 @@
+<pre>{{providerData.value | json}}</pre>
+<div class="px-8">
+    <h1>CREATE PROVIDER</h1>
+    <form [formGroup]="providerData" (ngSubmit)="onClick()">
+        <div class="grid gy-3 my-3">
+            <div class="col-12 md:col-3">
+                <label for="providerName"  >Provider Name <span class="text-red-500">*</span></label>
+            </div>
+            <div class="col-12 md:col-9">
+                <input type="text" class="w-full" class="col-8" pInputText id="providerName" formControlName="providerName"/>
+            </div>
+            <div class="col-12 md:col-3">
+                <label for="formFile">Provider Logo <span class="text-red-500">*</span></label>
+            </div>
+            <div class="col-12 md:col-9">
+                <p-fileUpload mode="basic" chooseLabel="Choose" #file accept="image/*" (onSelect)="fileUpload($event, file)" styleClass="p-button-warning p-button-rounded"></p-fileUpload>
+            </div>
+            <div class="col-12">
+                <a routerLink="/providers" class="p-button-secondary mr-3" pButton style="text-decoration: none;">BACK</a>
+                <button type="submit" class="p-button-warning" pButton>CREATE</button>
+            </div>
+        </div>
+    </form>
+</div>

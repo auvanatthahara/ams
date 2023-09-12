@@ -1,0 +1,30 @@
+<pre>{{employeeData.value | json}}</pre>
+<div class="px-8">
+    <h1>CREATE EMPLOYEE</h1>
+    <form [formGroup]="employeeData" (ngSubmit)="onClick()">
+        <div class="grid gy-3 my-3 ">
+            <div class="col-12 md:col-3">
+                <label for="employeeName"  >Employee Name <span class="text-red-500">*</span></label>
+            </div>
+            <div class="col-12 md:col-9">
+                <input type="text" class="w-full"   id="employeeName" pInputText formControlName="employeeName"/>
+            </div>
+            <div class="col-12 md:col-3">
+                <label for="employeeCode"  >Employee Code <span class="text-red-500">*</span></label>
+            </div>
+            <div class="col-12 md:col-9">
+                <input type="text" class="w-full"   id="employeeCode" pInputText formControlName="employeeCode" />
+            </div>
+            <div class="col-12 md:col-3">
+                <label for="company"  >Company <span class="text-red-500">*</span></label>
+            </div>
+            <div class="col-12 md:col-9">
+                <p-dropdown formControlName="companyId" [options]="companies" optionValue="companyId" optionLabel="companyName"></p-dropdown>
+            </div>
+            <div class="col-12">
+                <a routerLink="/employees" class="p-button-secondary mr-3" pButton style="text-decoration: none;">BACK</a>
+                <button type="submit" class="p-button-warning" pButton>CREATE</button>
+            </div>
+        </div>
+    </form>
+</div>

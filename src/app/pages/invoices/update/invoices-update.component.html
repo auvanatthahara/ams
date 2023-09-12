@@ -1,0 +1,23 @@
+<form [formGroup]="invoiceUpdate" (ngSubmit)="onUpdate()" class="">
+    <h1>INVOICE UPDATE</h1>
+    <div class="row align-items-center gy-3 my-3">
+        <div class="col-12 col-md-2">
+            <label for="supplier"  >Supplier</label>
+        </div>
+        <div class="col-12 col-md-10">
+            <select class="form-select" aria-label="Default select example" id="supplier" formControlName="supplierId">
+                <option *ngFor="let s of suppliers;" value="{{s.supplierId}}">{{s.supplierName}}</option>
+            </select>
+        </div>
+        <div class="col-12 col-md-2">
+            <label for="photoForm"  >Photo</label>
+        </div>
+        <div class="col-12 col-md-10">
+            <input   type="file" id="photoForm" (change)="fileUpload($event)">
+        </div>
+        <div class="col-12">
+            <a routerLink="/invoices" class="btn btn-secondary me-3">BACK</a>
+            <button type="submit" class="btn btn-warning">UPDATE</button>
+        </div>
+    </div>
+</form>

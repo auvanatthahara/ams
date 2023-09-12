@@ -1,0 +1,55 @@
+<pre>{{invoiceData.value | json}}</pre>
+<div class="px-8">
+    <h1>CREATE INVOICE</h1>
+    <form [formGroup]="invoiceData" (ngSubmit)="onClick()">
+        <div class="grid gy-3 my-3">
+            <div class="col-12 md:col-2">
+                <label for="supplierForm">Supplier <span class="text-red-500">*</span></label>
+            </div>
+            <div class="col-12 md:col-10">
+                <p-dropdown formControlName="supplierId" [options]="suppliers" optionValue="supplierId" optionLabel="supplierName"></p-dropdown>
+            </div>
+            <div class="col-12 md:col-2">
+                <label for="formFile">Invoice Receipt <span class="text-red-500">*</span></label>
+            </div>
+            <div class="col-12 md:col-10">
+                <p-fileUpload mode="basic" chooseLabel="Choose" #file accept="image/*" (onSelect)="fileUpload($event, file)" styleClass="p-button-warning p-button-rounded"></p-fileUpload>
+            </div>
+            <div class="col-12 md:col-2">
+                <h3>Details <span class="text-red-500">*</span></h3>
+            </div>
+            <div class="col-12 md:col-10">
+                <button type="button" class="p-button-secondary" pButton (click)="onAdd()">ADD</button>
+            </div>
+            <div class="card p-3 border-solid border-round my-3" *ngFor="let in of detailDatas.controls; let i = index" formArrayName="invoiceDetails">
+                <div class="grid gy-3" [formGroupName]="i">
+                    <div class="col-12 md:col-2">
+                        <label for="itemNameForm">Item Name <span class="text-red-500">*</span></label>
+                    </div>
+                    <div class="col-12 md:col-10">
+                        <input type="text" class="w-full" pInputText id="itemNameForm" formControlName="itemName">
+                    </div>
+                    <div class="col-12 md:col-2">
+                        <label for="itemCodeForm">Item Code <span class="text-red-500">*</span></label>
+                    </div>
+                    <div class="col-12 md:col-10">
+                        <input type="text" class="w-full" pInputText id="itemCodeForm" formControlName="itemCode">
+                    </div>
+                    <div class="col-12 md:col-2">
+                        <label for="providerForm">Provider<span class="text-red-500">*</span></label>
+                    </div>
+                    <div class="col-12 md:col-10">
+                        <p-dropdown formControlName="providerId" [options]="providers" optionValue="providerId" optionLabel="providerName"></p-dropdown>
+                    </div>
+                    <div class="col-12 d-flex justify-content-end">
+                        <a class="p-button-danger p-button-sm" (click)="onRemove(i)" pButton style="text-decoration: none;">DEL</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <a routerLink="/invoices" class="p-button-secondary mr-3" pButton style="text-decoration: none;">BACK</a>
+                <button type="submit" class="p-button-warning" pButton>SUBMIT</button>
+            </div>
+        </div>
+    </form>
+</div>

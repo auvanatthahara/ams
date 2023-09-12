@@ -1,0 +1,34 @@
+<pre>{{profile.value | json}}</pre>
+<div class="px-8">
+    <h1>PROFILE</h1>
+    <form [formGroup]="profile" (ngSubmit)="onSubmit()">
+        <div class="grid align-items-center gy-3 my-3">
+            <div class="col-12 md:col-2">
+                <label for="email">Email <span class="text-red-500">*</span></label>
+            </div>
+            <div class="col-12 md:col-10">
+                <input type="email" class="w-full" id="email" pInputText formControlName="userEmail"/>
+            </div>
+            <div class="col-12 md:col-2">
+                <label for="fullname">Full Name <span class="text-red-500">*</span></label>
+            </div>
+            <div class="col-12 md:col-10">
+                <input type="text" class="w-full" id="fullname" pInputText formControlName="profileName" />
+            </div>
+            <div class="col-12 md:col-2">
+                <label for="address">Address <span class="text-red-500">*</span></label>
+            </div>
+            <div class="col-12 md:col-10">
+                <input type="text" class="w-full" id="address" pInputTextarea formControlName="profileAddress" />
+            </div>
+            <div class="col-12 md:col-2">
+                <label for="formFile">User Photo <span class="text-red-500">*</span></label>
+            </div>
+            <div class="col-12 md:col-10">
+                <p-fileUpload mode="basic" chooseLabel="Choose" #file accept="image/*" (onSelect)="fileUpload($event, file)" styleClass="p-button-warning p-button-rounded"></p-fileUpload>
+            </div>
+        </div>
+        <a routerLink="/users/profile" class="p-button-secondary mr-3" pButton style="text-decoration: none;">BACK</a>
+        <button type="submit" pButton class="p-button-warning">SUBMIT</button>
+    </form>
+</div>

@@ -1,0 +1,68 @@
+<pre>{{checkoutData.value | json}}</pre>
+<div class="px-8">
+    <h1>CHECKOUT</h1>
+    <div class="grid">
+        <div class="col-12 md:col-2">
+            <label for="borrowForm">Borrower<span class="text-red-500">*</span></label>
+        </div>
+        <div class="col-12 md:col-10">
+            <p-dropdown [options]="borrowers" [(ngModel)]="borrower" optionLabel="name"
+                (onChange)="setBorrower()"></p-dropdown>
+        </div>
+    </div>
+    <form [formGroup]="checkoutData" (ngSubmit)="onSubmit()">
+        <div class="grid gy-3 my-3">
+            <div *ngIf="isGeneral" class="col-12 md:col-2">
+                <label for="generalForm">Asset General<span class="text-red-500">*</span></label>
+            </div>
+            <div *ngIf="isGeneral" class="col-12 md:col-10">
+                <p-dropdown formControlName="assetGeneralId" [options]="assetGenerals" optionValue="assetId"
+                    optionLabel="itemName"></p-dropdown>
+            </div>
+            <div *ngIf="isEmployee" class="col-12 md:col-2">
+                <label for="employeeForm">Employee<span class="text-red-500">*</span></label>
+            </div>
+            <div *ngIf="isEmployee" class="col-12 md:col-10">
+                <p-dropdown formControlName="employeeId" [options]="employees" optionValue="employeeId"
+                    optionLabel="employeeName"></p-dropdown>
+            </div>
+            <div *ngIf="isPlace" class="col-12 md:col-2">
+                <label for="placeForm">Place<span class="text-red-500">*</span></label>
+            </div>
+            <div *ngIf="isPlace" class="col-12 md:col-10">
+                <input type="text" class="w-full" id="placeForm" placeholder="Place" pInputText formControlName="place">
+            </div>
+            <div class="col-12 md:col-2">
+                <h6>Assets<span class="text-red-500">*</span></h6>
+            </div>
+            <div class="col-12 md:col-10">
+                <button type="button" class="p-button-warning p-button-rounded" pButton (click)="onAdd()">ADD</button>
+
+            </div>
+            <div class="card border-solid border-round p-3 my-3" *ngFor="let a of assetInput.controls; let r of returnDateInput.controls; let i = index">
+                <div class="grid gy-1 my-3">
+                    <div class="col-12 md:col-2">
+                        <label for="chooseAssetForm">Choose Assets<span class="text-red-500">*</span></label>
+                    </div>
+                    <div formArrayName="assetId" class="col-12 md:col-10">
+                        <p-dropdown [formControlName]="i" [options]="assets" optionValue="assetId" optionLabel="itemName"></p-dropdown>
+                    </div>
+                    <div class="col-12 md:col-2">
+                        <label for="retunrForm">Return Date</label>
+                    </div>
+                    <div class="col-12 md:col-10" formArrayName="returnDateTemp">
+                        <p-calendar [formControlName]="i" (onSelect)="convertDate($event, i)"></p-calendar>
+                    </div>
+                    <div class="col-12 ">
+                        <a class="p-button-danger" pButton style="text-decoration: none;"
+                            (click)="onRemove(i)">DELETE</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <a routerLink="/checkouts" class="p-button-secondary mr-3" pButton style="text-decoration: none;">BACK</a>
+                <button type="submit" class="p-button-warning" pButton>SUBMIT</button>
+            </div>
+        </div>
+    </form>
+</div>

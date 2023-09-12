@@ -1,0 +1,15 @@
+<form [formGroup]="assetUpdate" (ngSubmit)="onUpdate()" class="flex justify-content-center flex-column px-8">
+    <h1>ASSET UPDATE</h1>
+    <div class="grid align-items-center gy-3 my-3">
+        <div class="col-12 md:col-2">
+            <label for="statusForm">Status</label>
+        </div>
+        <div class="col-12 md:col-10">
+            <p-dropdown formControlName="assetStatusId" [options]="statuses" optionValue="statusId" optionLabel="assetStatus"></p-dropdown>
+        </div>
+        <div class="col-12">
+            <a routerLink="/assets" class="p-button-secondary mr-3" pButton style="text-decoration: none;">BACK</a>
+            <button type="submit" class="p-button-warning mr-3" pButton >UPDATE</button>
+        </div>
+    </div>
+</form>

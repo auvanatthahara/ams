@@ -1,0 +1,24 @@
+<pre>{{invoiceDetailUpdate.value | json}}</pre>
+<div class=" px-8">
+    <h1>DETAILS UPDATE</h1>
+    <form [formGroup]="invoiceDetailUpdate" (ngSubmit)="onUpdate()">
+        <div class="row align-items-center gy-3 my-3">
+            <div class="col-12 col-md-2">
+                <label for="nameForm"  >Name</label>
+            </div>
+            <div class="col-12 col-md-10">
+                <input type="text" class="w-full"   id="nameForm" formControlName="itemName">
+            </div>
+            <div class="col-12 col-md-2">
+                <label for="codeForm"  >Code</label>
+            </div>
+            <div class="col-12 col-md-10">
+                <input type="text" class="w-full"   id="codeForm" formControlName="itemCode">
+            </div>
+            <div class="col-12 d-flex justify-content-between">
+                <a routerLink="/invoices" class="btn btn-secondary">BACK</a>
+                <button type="submit" class="btn btn-warning">UPDATE</button>
+            </div>
+        </div>
+    </form>
+</div>

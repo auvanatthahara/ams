@@ -1,0 +1,8 @@
+<p-menubar [model]="items">
+    <ng-template pTemplate="end">
+        <p-overlayPanel #id>
+            <p-menu [model]="profileItem"></p-menu>
+        </p-overlayPanel>
+        <img src="{{imgurl}}" alt="" style="width: 3rem; height: 3rem; border-radius: 100%; cursor: pointer;" class="mx-3 mt-2" (click)="id.toggle($event)">
+    </ng-template>
+</p-menubar>

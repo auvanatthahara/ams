@@ -1,0 +1,23 @@
+<div class=" px-8">
+    <form [formGroup]="supplierUpdate" (ngSubmit)="onUpdate()">
+        <h1>SUPPLIER UPDATE</h1>
+        <div class="row align-items-center gy-3 my-3">
+            <div class="col-12 col-md-2">
+                <label for="nameForm"  >Name</label>
+            </div>
+            <div class="col-12 col-md-10">
+                <input type="text" class="w-full"   id="nameForm" formControlName="supplierName">
+            </div>
+            <div class="col-12 col-md-2">
+                <label for="photoForm"  >Photo</label>
+            </div>
+            <div class="col-12 col-md-10">
+                <input   type="file" id="photoForm" (change)="fileUpload($event)">
+            </div>
+            <div class="col-12 ">
+                <a routerLink="/suppliers" class="btn btn-secondary me-3">BACK</a>
+                <button type="submit" class="btn btn-warning">UPDATE</button>
+            </div>
+        </div>
+    </form>
+</div>
